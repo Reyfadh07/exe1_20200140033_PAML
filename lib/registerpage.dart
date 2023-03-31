@@ -35,6 +35,19 @@ class _RegisterPageState extends State<RegisterPage> {
                 Icons.arrow_back_ios,
               ),
             ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.only(top: 10),
+            width: 150.0,
+            height: 150.0,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('images/pokemon1.jpeg'),
+              ),
+            ),
           )
         ],
       ),
