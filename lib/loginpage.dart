@@ -1,3 +1,5 @@
+import 'package:exe1_2020140033/homepage.dart';
+import 'package:exe1_2020140033/registerpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -95,7 +97,14 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   padding: const EdgeInsets.only(top: 100),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
@@ -108,7 +117,28 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                Row()
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Tidak meiliki Akun",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterPage()),
+                        );
+                      },
+                      child: const Text(
+                        "Daftar",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
