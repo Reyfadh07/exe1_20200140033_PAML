@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           Container(
             alignment: Alignment.center,
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 20),
             width: 150.0,
             height: 150.0,
             decoration: const BoxDecoration(
@@ -47,6 +47,63 @@ class _RegisterPageState extends State<RegisterPage> {
                 fit: BoxFit.fill,
                 image: AssetImage('images/pokemon1.jpeg'),
               ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(top: 40),
+            alignment: Alignment.center,
+            child: const Text(
+              "Daftar",
+              style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.redAccent,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Form(
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.only(left: 30),
+                  child: const Text(
+                    "Nama",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      hintStyle: TextStyle(fontSize: 20),
+                      hintText: "Masukan Nama Anda",
+                      prefixIcon: Icon(
+                        Icons.person_2,
+                        color: Colors.redAccent,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 30, left: 30),
+                  alignment: Alignment.centerLeft,
+                  child: const Text(
+                    "Email",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.redAccent,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                )
+              ],
             ),
           )
         ],
