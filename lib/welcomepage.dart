@@ -13,7 +13,17 @@ class WelcomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              child: Text('Pokedex'),
+              padding: const EdgeInsets.only(top: 80),
+              child: const Text(
+                'Pokedex',
+                style: TextStyle(
+                    fontSize: 45,
+                    color: Colors.redAccent,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              
             )
           ],
         ),
