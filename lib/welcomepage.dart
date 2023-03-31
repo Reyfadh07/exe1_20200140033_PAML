@@ -23,8 +23,14 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             Container(
-              
-            )
+              padding: EdgeInsets.only(top: 45),
+              child: const Text(
+                'Welcome to Pokedex \n You can find your favorite Pokemon here',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.grey, fontSize: 20),
+              ),
+            ),
+            Container()
           ],
         ),
       ),
