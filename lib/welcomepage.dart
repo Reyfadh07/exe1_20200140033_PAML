@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -23,14 +21,29 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top: 45),
+              padding: const EdgeInsets.only(top: 45),
               child: const Text(
                 'Welcome to Pokedex \n You can find your favorite Pokemon here',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey, fontSize: 20),
               ),
             ),
-            Container()
+            Container(
+              padding: const EdgeInsets.only(top: 140),
+              child: Image.asset(
+                'images/logopokemon.jpeg',
+                width: 200,
+                height: 200,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 150),
+              child: FloatingActionButton(
+                onPressed: () {},
+                backgroundColor: Colors.redAccent,
+                child: const Icon(Icons.arrow_forward_ios),
+              ),
+            )
           ],
         ),
       ),
