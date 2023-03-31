@@ -32,7 +32,19 @@ class _LoginPageState extends State<LoginPage> {
                   fontSize: 40,
                   fontWeight: FontWeight.bold),
             ),
-          )
+          ),
+          Container(
+            padding: const EdgeInsets.only(top: 20),
+            child: const Text(
+              "There's No Sense In Going Out Of \n Your Way To Get SomeBody To Like You,",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
+            ),
+          ),
+          Form(
+              child: Column(
+            children: [],
+          ))
         ]),
       ),
     );
