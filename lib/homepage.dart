@@ -54,9 +54,39 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container()
               ],
-            )
+            ),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.only(left: 20),
+              child: const Text(
+                'POKEDEX',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.redAccent,
+                    fontSize: 25),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                  hintText: 'Cari Pokemon',
+                  hintStyle: TextStyle(
+                      color: Colors.grey, fontWeight: FontWeight.normal),
+                  prefixIcon: Icon(Icons.search),
+                  fillColor: Colors.grey[200],
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
