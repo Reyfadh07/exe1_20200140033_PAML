@@ -17,6 +17,7 @@ class WelcomePage extends StatelessWidget {
                 'Pokedex',
                 style: TextStyle(
                     fontSize: 45,
+                    fontStyle: FontStyle.italic,
                     color: Colors.redAccent,
                     fontWeight: FontWeight.bold),
               ),

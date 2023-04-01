@@ -1,3 +1,4 @@
+import 'package:exe1_2020140033/homepage.dart';
 import 'package:exe1_2020140033/welcomepage.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomePage(),
+      home: const HomePage(),
     );
   }
 }
