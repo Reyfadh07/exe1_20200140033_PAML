@@ -14,6 +14,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
+  final _passwordController = TextEditingController();
+
+  String? nama;
+  String? email;
+  String? password;
+  String? repassword;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Form(
+              key: _formKey,
               child: Column(children: [
                 Container(
                   alignment: Alignment.centerLeft,
@@ -91,6 +98,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         color: Colors.redAccent,
                       ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Nama tidak boleh kosong";
+                      } else if (value.length < 6) {
+                        return "Nama minimal harus 6 karakter";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      nama = value;
+                    },
                   ),
                 ),
                 Container(
@@ -117,6 +135,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         color: Colors.redAccent,
                       ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Email tidak boleh kosong";
+                      } else if (!value.contains('@')) {
+                        return "Email tidak valid";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      email = value;
+                    },
                   ),
                 ),
                 Container(
@@ -134,6 +163,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Container(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: TextFormField(
+                    obscureText: true,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
                       hintStyle: TextStyle(fontSize: 20),
@@ -143,6 +173,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         color: Colors.redAccent,
                       ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Password tidak boleh kosong";
+                      } else if (value.length < 6) {
+                        return "Password harus lebih dari 6 karakter";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      password = value;
+                    },
                   ),
                 ),
                 Container(
@@ -160,6 +201,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 Container(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: TextFormField(
+                    controller: _passwordController,
+                    obscureText: true,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
                       hintStyle: TextStyle(fontSize: 20),
@@ -169,6 +212,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         color: Colors.redAccent,
                       ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Re-Password tidak boleh kosong";
+                      } else if (value != _passwordController.text) {
+                        return "Re-password harus sama dengan password";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      repassword = value;
+                    },
                   ),
                 ),
                 Container(
@@ -180,7 +234,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomePage(),
+                            builder: (context) => HomePage(
+                              name: nama,
+                            ),
                           ),
                         );
                       }

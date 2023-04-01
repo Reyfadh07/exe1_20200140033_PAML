@@ -1,3 +1,4 @@
+import 'package:exe1_2020140033/pokehub.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -41,8 +42,8 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 60, left: 200),
-                  margin: EdgeInsets.only(top: 60, left: 200),
+                  padding: EdgeInsets.only(top: 60, left: 100),
+                  margin: EdgeInsets.only(top: 60, left: 130),
                   height: 70,
                   width: 70,
                   decoration: const BoxDecoration(
@@ -68,15 +69,15 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 20),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: TextField(
                 decoration: InputDecoration(
                   filled: true,
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                  contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 16.0),
                   hintText: 'Cari Pokemon',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: Colors.grey, fontWeight: FontWeight.normal),
                   prefixIcon: Icon(Icons.search),
                   fillColor: Colors.grey[200],
@@ -87,6 +88,38 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            Column(
+              children: const [
+                PokeHub(
+                    nomorpoke: '#007',
+                    namapoke: 'Squirtle',
+                    deskpoke:
+                        'When it retracts its long neck into its shell, it squirts out water with vigorous force.',
+                    assetpoke: 'images/squirtle.png',
+                    tipepoke: 'Water'),
+                PokeHub(
+                    nomorpoke: '#0061',
+                    namapoke: 'Poliwhirl',
+                    deskpoke:
+                        "Staring at the swirl on its belly causes drowsiness. This trait of Poliwhirl’s has been used in place of lullabies to get children to go to sleep.",
+                    assetpoke: 'images/poliwhirl.png',
+                    tipepoke: 'Water'),
+                PokeHub(
+                    nomorpoke: '#009',
+                    namapoke: 'Blastoise',
+                    deskpoke:
+                        'It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.',
+                    assetpoke: 'images/blastoise.png',
+                    tipepoke: 'Water'),
+                PokeHub(
+                    nomorpoke: '#055',
+                    namapoke: 'Godluck',
+                    deskpoke:
+                        'When it swims at full speed using its long, webbed limbs, its forehead somehow begins to glow.',
+                    assetpoke: 'images/godluck.png',
+                    tipepoke: 'Water')
+              ],
+            )
           ],
         ),
       ),

@@ -12,6 +12,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  String? nama;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Form(
+            key: _formKey,
             child: Column(
               children: [
                 Container(
@@ -68,6 +73,17 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.redAccent,
                       ),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Nama tidak boleh kosong";
+                      } else if (value.length < 6) {
+                        return "Nama harus terdiri dari 6 karakter";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      nama = value;
+                    },
                   ),
                 ),
                 Container(
@@ -83,6 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   padding: const EdgeInsets.only(left: 20, right: 20),
                   child: TextFormField(
+                    obscureText: true,
                     decoration: const InputDecoration(
                         border: UnderlineInputBorder(),
                         hintText: 'Masukan Password',
@@ -92,18 +109,34 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.redAccent,
                         ),
                         suffixIcon: Icon(Icons.remove_red_eye)),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Password tidak boleh kosong";
+                      } else if (value.length < 6) {
+                        return "Password harus lebih dari 6 karakter";
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      password = value;
+                    },
                   ),
                 ),
                 Container(
                   padding: const EdgeInsets.only(top: 100),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(),
-                        ),
-                      );
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(
+                              name: nama,
+                            ),
+                          ),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
