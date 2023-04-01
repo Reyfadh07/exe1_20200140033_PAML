@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.only(top: 80, left: 20),
+                  padding: const EdgeInsets.only(top: 60, left: 20),
                   child: RichText(
                     text: TextSpan(
                       text: 'Hello,',
@@ -41,10 +41,20 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 50, left: 200),
+                  padding: EdgeInsets.only(top: 60, left: 200),
+                  margin: EdgeInsets.only(top: 60, left: 200),
                   height: 70,
                   width: 70,
-                )
+                  decoration: const BoxDecoration(
+                    color: Colors.redAccent,
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('images/ash.jpeg'),
+                    ),
+                  ),
+                ),
+                Container()
               ],
             )
           ],
